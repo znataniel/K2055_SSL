@@ -10,6 +10,10 @@ int main(void) {
   scanf("%d", &cantidad_enteros);
 
   numeros = malloc(sizeof(int) * cantidad_enteros);
+  if (!numeros) {
+    printf("ERROR: no se pudo reservar memoria para ingresar esa cantidad de "
+           "numeros\n");
+  }
 
   printf("A continuacion ingrese los numeros de a uno\n");
   for (int i = 0; i < cantidad_enteros; i++) {
@@ -25,6 +29,11 @@ int main(void) {
   // aca arranca ejercicio 2
   printf("Ingrese 3 enteros mas\n");
   numeros = realloc(numeros, (cantidad_enteros + 3) * sizeof(int));
+  if (!numeros) {
+    printf("ERROR: no se pudo reservar memoria para ingresar esa cantidad de "
+           "numeros\n");
+  }
+
   for (int i = cantidad_enteros; i < cantidad_enteros + 3; i++) {
     scanf("%d", numeros + i);
   }
